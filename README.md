@@ -1,6 +1,6 @@
 # Tutoriel VueJS "Découverte 2/16"
 
-## Basics attributes
+## Basic attributes
 
 Educational project to discover VueJS following the tutorials from grafikart.fr.
 
