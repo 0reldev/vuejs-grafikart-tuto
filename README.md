@@ -1,4 +1,4 @@
-# Tutoriel Vus JS "Découverte 2/16"
+# Tutoriel VueJS "Découverte 2/16"
 
 ## Basics attributes
 
