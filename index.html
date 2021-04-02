@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tuto VueJS</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" />
+        <link rel="stylesheet" href="css/style.css"/>
+       
+
+    </head>
+    <body>
+
+        <div class="ui inverted fixed menu">
+            <div class="header item">Découverte de VueJS</div>
+        </div>
+        
+            
+        <div class="ui main container" :style="changeBackgroundColor()"  id="app">
+
+            <input type="text" v-model="message"> <br/>
+            <input type="checkbox" v-model="cls" :true-value="'success'" :false-value="'error'"> <br/>
+            <!-- v-model sert à associer directement la valeur du champ avec la variable -->
+
+
+            {{ message }}
+
+            <a v-bind:href="link">{{ texteDeLien }}</a>
+            <!-- "v-bind:href" peut se simplifier ainsi ":href" -->
+            <div v-if='success'>
+
+                <i class="material-icons"></i>
+                <p v-show='success'>Bravo ! (ce message ne s'affiche qu'en cas de succès)</p>
+            </div>
+            <!-- v-if fait disparaître le bloc du code si la condition n'est pas remplie. -->
+
+            <div v-else>
+                <p>Échec ! (ce message ne s'affice qu'en cas d'échec)</p>
+            </div>
+            <!-- v-else, à mettre au même niveau que v-if, ne s'affiche que si le v-if n'est pas rempli -->
+<!-- 
+            <div v-show='!success'>
+                <p>Échec ! (ce message ne s'affiche qu'en cas d'échec)</p>
+            </div> -->
+            <!-- v-show ajoute un display:none dans le style du bloc si la condition n'est pas remplie. -->
+
+            <ul :class="success ? 'success' : 'error'">
+                <li v-for="person in people"> {{ person }} </li>
+                <br/>
+                <button @click="close">Changer la valeur de success</button>
+                 <!-- "v-on:"" a une nottation simplifiée : "@"  -->
+            </ul>
+
+
+            <ul :class="{success: success, error: !success}" :style="{background: 'blue'}">
+                <li v-for="person in people"> {{ person }} </li>
+                <br/>
+                <button @click="close">Changer la valeur de success</button>
+                 <!-- "v-on:"" a une nottation simplifiée : "@"  -->
+            </ul>
+
+
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
