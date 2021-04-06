@@ -18,6 +18,8 @@
             
         <div class="ui main container" :style="changeBackgroundColor()"  id="app">
 
+            <h2> Tuto 2/16 : "Découverte"</h2>
+
             <input type="text" v-model="message"> <br/>
             <input type="checkbox" v-model="cls" :true-value="'success'" :false-value="'error'"> <br/>
             <!-- v-model sert à associer directement la valeur du champ avec la variable -->
@@ -59,8 +61,23 @@
                  <!-- "v-on:"" a une nottation simplifiée : "@"  -->
             </ul>
 
+            <!-- Exemple de méthode pour ajouter un élément dans une liste -->
+            <div>
+                <h2> Tuto 3/16 : "L'instance"</h2>
+                {{ people }}<br/>
+                <button @click="addPerson">Ajouter une personne</button>
+            </div>
+            
+            <!-- Exemple de timer -->
+            <div>
+                {{ seconds }}
+            </div>
+
+
 
         </div>
+
+    
     
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="js/app.js"></script>
