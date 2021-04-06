@@ -73,6 +73,23 @@
                 {{ seconds }}
             </div>
 
+            <h2> Tuto 4/16 : "Propriétés combinées & Watchers"</h2>
+            <input type="checkbox" v-model="success">
+            <input type="text" v-model="message2">
+            {{ message2 }}
+            <div class="ui message" :class="cls2">
+                Salut les gens !
+            </div>
+
+            <p>
+                Prénom : {{ firstname }} <br/>
+                Nom : {{ lastname }} <br/>
+                Nom complet : {{ fullname }} <br/><br/>
+                
+                Nom complet : <input type="text" v-model="fullname" >
+
+            </p>
+
 
 
         </div>
