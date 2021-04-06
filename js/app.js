@@ -1,3 +1,25 @@
+Vue.directive('salut', {
+    bind: function(el, binding, vnode) {
+        // console.log(el, binding);
+        el.value = binding.value;
+        console.log('bind');
+    }, 
+    update: function(el, binding, vnode, oldvnode) {
+        console.log('update');
+    }
+}) 
+
+// ↓ Ça fonctionne aussi bien
+// Vue.directive('salut', function (el, binding) {
+//     el.value = binding.value;
+//     console.log('bind');
+// }
+
+let salut = function(el, binding) {
+    el.value = binding.value;
+    console.log('bind');
+}
+
 let vm = new Vue({
     el: '#app',
     data: {
@@ -63,6 +85,22 @@ let vm = new Vue({
         },
         addPerson: function() {
             this.people.push('Marion');
+        },
+        // ↓ equivalent à "@click.prevent"
+        // demo: function(e) {
+        //     console.log('Salut !', e.preventDefault());
+        // }
+        // permet de détecter et de stopper l'événement
+        demo: function() {
+            console.log('démo');
+        },
+        demo2: function() {
+            console.log('démo2');
         }
-    }
+    },
+    directives: {
+        salut
+        // ↓ Équivalent à
+        // salut: salut
+    } 
 })

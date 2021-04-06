@@ -33,3 +33,20 @@ It introduces generic methods from Vue instances, like `mounted` and `destroy` f
 Based on the tutorial from Grafikart: https://grafikart.fr/tutoriels/computed-watch-811#autoplay
 
 This part is about combined properties, with an example to concatenate dynamic first names and last names into one editable complete name. This example introduces watchers with the `watch` property, used to detect when a variable is edited.
+
+## "5/16 : Les directives"
+
+Based on the tutorial from Grafikart: https://grafikart.fr/tutoriels/directives-812#autoplay
+
+Those directives are introduced:
+* `@click.prevent`
+* `@click.stop`
+* `@click.capture`
+* `@click.self`
+* `v-model.lazy`
+* `v-model.number`
+* `v-model.trim`
+* `@keyup`
+* `@keyup.space`
+
+In the end, the tutorial teaches how to create our own directives.

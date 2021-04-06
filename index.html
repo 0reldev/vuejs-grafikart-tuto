@@ -87,9 +87,29 @@
                 Nom complet : {{ fullname }} <br/><br/>
                 
                 Nom complet : <input type="text" v-model="fullname" >
-
             </p>
 
+            <h2>Tuto 5/16 : Les directives</h2>
+            <p @click="demo2">
+                <a href="http://grafikart.fr" @click.prevent.stop="demo">Lien</a>
+                <!-- @click.prevent : modifieur permettant de détecter et de stopper l'événement -->
+                <!-- @click.stop: permet de stopper la propagation (déclenchement d'événemnets parents en cascade)-->
+                <!-- @click.prevent.stop: combinaison des deux directives précédentes -->
+                <!-- @click.capture : permet de capture le click -->
+                <!-- @click.self: ne se déclenche qui si on clique vraiment sur le containenr, mais pas un enfant par exemple -->
+            </p>
+
+            <input type="text" @keyup="demo" v-model.trim="message">
+            <!-- v-model.lazy: ne rafraîchit l'affichage de cette variable que lorsque qu'on sort du champ -->
+            <!-- v-model.number: ne prend que des chiffres dans le champs -->
+            <!-- v-model.trim: supprime les espaces en début et en fin de chaîne-->
+            <!-- @keyup: appelle une méthode dès qu'on lâche une touche -->
+            <!-- @keyup.space: appelle une méthode dès qu'on lâche la touche espace -->    
+            {{ message }}
+
+
+            <br/><br/>
+            <input type="text"  v-salut.a.b.c="message">
 
 
         </div>
