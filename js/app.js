@@ -1,3 +1,33 @@
+// Création de son propre composant
+// Vue.component('message', {
+//     props: { //['type', 'message'],
+//         type: {type: String, default:'success'},
+//         message: String
+//     },
+//     template: `<div class="ui message" :class="type"> {{ message }} </div>`
+// })
+
+// ou bien sous forme de variable 
+let message = {
+    props: {
+        type: {type: String, default:'success'},
+        message: String,
+        header: String
+    },
+    template: `<div class="ui message" :class="type">
+        <i class="close icon" @click.prevent="close"></i>
+        <div class="header"> {{ header }} </div>
+        {{ message }} 
+     </div>`,
+     methods: {
+         close() {
+             this.$emit('close');
+            // this.$parent.$data.alert =  false;
+         }
+     }
+}
+
+
 // Création de sa propre directive
 Vue.directive('salut', {
     bind: function(el, binding, vnode) {
@@ -35,11 +65,78 @@ let salut = function(el, binding) {
     console.log('bind');
 }
 
+// Composant de compteur
+let counter = {
+    data: function () {
+       return  {
+           count: 0
+        }
+    },
+    // computed: {
+    //     total: function() {
+    //         this.start + this.count;
+    //     }
+    // },
+    props: {
+        start: {type: Number, default: 0}
+    },
+    methods : {
+        increment: function() {
+            this.count ++;
+        }
+    },
+    template: `<div>
+    <button @click="increment">{{ count }}</button>
+    </div>`,
+    mounted: function() {
+        this.count = this.start;
+    }
+}
+
+
+let formUser = {
+    props: {
+        value: Object
+    },
+    data() {
+        return {
+            user: {...this.value}
+        }
+    },
+    methods: {
+        save () {
+            this.$emit('input', this.user)
+        }
+    },
+    template: `
+    <form class="ui form" @submit="save"> 
+        <p><slot name="header"></slot></p>
+        <div class="field">
+            <label for="">Prénom</label>
+            <input type="text" v-model="user.firstname">
+        </div>
+        <div class="field">
+            <label for="">Nom</label>
+            <input type="text" v-model="user.lastname">
+        </div>
+        <button class="ui button" type="submit">Envoyer</button>
+
+        <p><slot name="footer"></slot></p>
+   
+    </form>
+    `,
+    mounted: function () {
+        console.log(this)
+    }
+}
+
+
 let vm = new Vue({
     el: '#app',
+    components: { message, counter, formUser},
     filters: { capitalize },
     data: {
-        message: 'Salut les gens !',
+        message: 'Voici un super message',
         message2: '',
         texteDeLien: 'Je suis un lien, cliquez sur moi !',
         link: 'http://www.google.fr',
@@ -50,7 +147,12 @@ let vm = new Vue({
         seconds: 0,
         firstname: 'Jean',
         lastname: 'Poche',
-        fullname: ''
+        fullname: '',
+        alert: false,
+        user: {
+            firstname: 'Jean',
+            lastname: 'Eustache'
+        }
     },
     mounted: function() {
         this.$interval = setInterval(() => {
@@ -112,6 +214,12 @@ let vm = new Vue({
         },
         demo2: function() {
             console.log('démo2');
+        },
+        showAlert: function() {
+            this.alert = true;
+        },
+        hideAlert: function() {
+            this.alert = false;
         }
     },
     directives: {

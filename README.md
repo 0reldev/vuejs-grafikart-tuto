@@ -56,3 +56,14 @@ Based on the tutorial from Grafikart: https://grafikart.fr/tutoriels/filters-813
 This part teaches how to define a filter function, and how to call it in the HTML file.
 
 Two examples are tested, a `capitalize` method, and a `reverse` one.
+
+
+## "7/16 : Les Composants"
+
+Based on the tutorial from Grafikart: https://grafikart.fr/tutoriels/components-814#autoplay
+
+In this tutorial, I learned how to handle components. Four examples are explored:
+* how to open and close a message block
+* how to user counters which can increment on click
+* how to edit object attributes with a dynamic form
+* how to the `slot` properties to move containers' position in the page

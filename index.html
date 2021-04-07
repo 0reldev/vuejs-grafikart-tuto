@@ -114,6 +114,28 @@
 
                 {{ message | capitalize('aze','aze') | reverse }}
 
+
+            <h2>Tuto 7/16 : Les composants</h2>
+
+            <message type="error" :message="message" header="Attention" v-if="alert" @close="hideAlert"> </message>
+            <button @click="showAlert" v-if="!alert">Alerter</button>
+            <counter></counter>
+            <counter :start="3"></counter>
+
+            <br/>
+            <form-user v-model="user">
+
+                <div slot="header">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum commodi accusamus illo, totam provident, ducimus architecto voluptate enim ab adipisci tempore sapiente quaerat, consectetur delectus iusto est reprehenderit quasi dignissimos?</div>
+                
+                <div slot="footer">ipsum dolor sit amet, consectetur adipisicing elit. Dolorum commodi accusamus illo, totam provident, ducimus architecto voluptate enim ab adipisci tempore sapiente quaerat, consectetur delectus iusto est reprehenderit quasi dignissimos?</div>
+
+            </form-user>
+
+            <pre>
+                {{ user }}
+            </pre>
+            <p> </p>
+
         </div>
 
     
