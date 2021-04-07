@@ -1,7 +1,5 @@
 # Tutoriel VueJS from Grafikart.fr
 
-## Basic attributes
-
 Educational project to discover VueJS following the tutorials from grafikart.fr.
 
 
@@ -50,3 +48,11 @@ Those directives are introduced:
 * `@keyup.space`
 
 In the end, the tutorial teaches how to create our own directives.
+
+## "6/16 : Les filtres"
+
+Based on the tutorial from Grafikart: https://grafikart.fr/tutoriels/filters-813#autoplay
+
+This part teaches how to define a filter function, and how to call it in the HTML file.
+
+Two examples are tested, a `capitalize` method, and a `reverse` one.

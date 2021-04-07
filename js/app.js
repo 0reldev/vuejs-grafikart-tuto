@@ -1,3 +1,4 @@
+// Création de sa propre directive
 Vue.directive('salut', {
     bind: function(el, binding, vnode) {
         // console.log(el, binding);
@@ -15,6 +16,20 @@ Vue.directive('salut', {
 //     console.log('bind');
 // }
 
+
+Vue.filter('capitalize', function (value, prefix, suffix) {
+    return prefix + value.toUpperCase() + suffix;
+})
+
+Vue.filter('reverse', function (value) {
+    return value.split('').reverse().join('');
+})
+
+let capitalize = function(value, prefix, suffix) {
+    return prefix + value.toUpperCase() + suffix;
+}
+
+
 let salut = function(el, binding) {
     el.value = binding.value;
     console.log('bind');
@@ -22,6 +37,7 @@ let salut = function(el, binding) {
 
 let vm = new Vue({
     el: '#app',
+    filters: { capitalize },
     data: {
         message: 'Salut les gens !',
         message2: '',

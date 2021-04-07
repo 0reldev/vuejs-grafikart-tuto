@@ -107,10 +107,12 @@
             <!-- @keyup.space: appelle une méthode dès qu'on lâche la touche espace -->    
             {{ message }}
 
-
             <br/><br/>
             <input type="text"  v-salut.a.b.c="message">
 
+            <h2>Tuto 6/16 : Les filtres</h2>
+
+                {{ message | capitalize('aze','aze') | reverse }}
 
         </div>
 
